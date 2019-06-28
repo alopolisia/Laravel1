@@ -11,6 +11,21 @@
 |
 */
 
+Route::get('/categoria', 'CategoriaController@index');
+
+Route::post('/categoria/agregar', 'CategoriaController@store');
+
+Route::put('/categoria/actualizar', 'CategoriaController@update');
+
+Route::put('/categoria/desactivar', 'CategoriaController@desactivar');
+
+Route::put('/categoria/activar', 'CategoriaController@activar');
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
 //Muestra la ruta de la vista welcome
 Route::get('/', function () {
     return view('welcome');
@@ -61,15 +76,12 @@ Route::get('/saludo2{name}/{nickname?}', function ($id, $nickname=null) {
 
 //Ruta plantilla principal
 Route::get('/principal', function () {
-    return view('principal/');
-});
-
-//Ruta plantilla principal con section & yield
-Route::get('/principal2', function () {
     return view('principal/contenido');
 });
 
-
+/*
+Route::get('/', 'UserController@index');
+*/
 //Ruta plantilla principal con section & yield
 Route::get('/usuario', function () {
     return view('principal/usuario');
