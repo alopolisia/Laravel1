@@ -28,7 +28,7 @@ Route::put('/categoria/activar', 'CategoriaController@activar');
 
 //Muestra la ruta de la vista welcome
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal/contenido');
 });
 
 //Muestra la ruta de la vista HOLA
@@ -73,11 +73,12 @@ Route::get('/saludo2{name}/{nickname?}', function ($id, $nickname=null) {
     
 });
 
-
+/*
 //Ruta plantilla principal
 Route::get('/principal', function () {
     return view('principal/contenido');
 });
+*/
 
 /*
 Route::get('/', 'UserController@index');
