@@ -3,29 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rol;
 
-//Importar el modelo de Categoria
-use App\Categoria;
-
-class CategoriaController extends Controller
+class RolController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
     public function index()
     {
-        //Retornar todas las categorias
-        $categorias = Categoria::all();
-        return $categorias;
+        //Retornar todas las rols
+        $rols = Rol::all();
+        return $rols;
     }
   
-    //Metodo para obtener el listado de las categorias activas
-    public function selectCategoria(Request $request)
+    //Metodo para obtener el listado de las rols activas
+    public function selectRol(Request $request)
     {
-        $categorias = Categoria::where('condicion','=','1')->select('id','nombre')->orderBy('nombre', 'asc')->get();
-        return ['categorias' => $categorias];
+        $rols = Rol::where('estado','=','1')->select('idrol','nombre')->orderBy('nombre', 'asc')->get();
+        return ['rols' => $rols];
       
     }
 
@@ -40,15 +34,15 @@ class CategoriaController extends Controller
         //Funcion para guardar, basicamente es el Insert :v
       
         //Instanciar el modelo
-        $categoria = new Categoria();
+        $rol = new Rol();
       
         //Pasar las propiedades de request al objeto recien creado
-        $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
-        $categoria->condicion = "1";
+        $rol->nombre = $request->nombre;
+        $rol->descripcion = $request->descripcion;
+        $rol->estado = "1";
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $rol->save();
     }
   
     /**
@@ -62,42 +56,42 @@ class CategoriaController extends Controller
     {
         //Funcion para actualizar
       
-        //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
+        //Encontrar la rol por id
+        $rol = Rol::findOrFail($request->id);
       
         //Pasar las propiedades de request al objeto recien creado
-        $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
-        $categoria->condicion = "1";
+        $rol->nombre = $request->nombre;
+        $rol->descripcion = $request->descripcion;
+        $rol->estado = "1";
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $rol->save();
     }
   
-    //Funcion para desactivar la categoria
+    //Funcion para desactivar la rol
     public function desactivar(Request $request)
     {
         //Funcion para actualizar
       
-        //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->condicion = "0";
+        //Encontrar la rol por id
+        $rol = Rol::findOrFail($request->idrol);
+        $rol->estado = "0";
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $rol->save();
     }
   
-    //Funcion para activar la categoria
+    //Funcion para activar la rol
     public function activar(Request $request)
     {
         //Funcion para actualizar
       
-        //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->condicion = "1";
+        //Encontrar la rol por id
+        $rol = Rol::findOrFail($request->idrol);
+        $rol->estado = "1";
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $rol->save();
     }
 
     /**

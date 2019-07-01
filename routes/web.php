@@ -11,7 +11,9 @@
 |
 */
 
+//Rutas de categoria
 Route::get('/categoria', 'CategoriaController@index');
+Route::get('/categoria/selectCategoria', 'CategoriaController@selectCategoria');
 
 Route::post('/categoria/agregar', 'CategoriaController@store');
 
@@ -22,7 +24,40 @@ Route::put('/categoria/desactivar', 'CategoriaController@desactivar');
 Route::put('/categoria/activar', 'CategoriaController@activar');
 
 
+//Rutas de articulos
+Route::get('/articulo', 'ArticuloController@index');
 
+Route::post('/articulo/agregar', 'ArticuloController@store');
+
+Route::put('/articulo/actualizar', 'ArticuloController@update');
+
+Route::put('/articulo/desactivar', 'ArticuloController@desactivar');
+
+Route::put('/articulo/activar', 'ArticuloController@activar');
+
+//Rutas de personas / clientes
+Route::get('/cliente', 'ClienteController@index');
+
+Route::post('/cliente/agregar', 'ClienteController@store');
+
+Route::put('/cliente/actualizar', 'ClienteController@update');
+
+Route::put('/cliente/borrar', 'ClienteController@borrar');
+
+//Rutas de proveedor
+Route::get('/proveedor', 'ProveedorController@index');
+
+Route::post('/proveedor/agregar', 'ProveedorController@store');
+
+Route::put('/proveedor/actualizar', 'ProveedorController@update');
+
+//Rutas de rol
+Route::get('/rol', 'RolController@index');
+Route::put('/rol/actualizar', 'RolController@update');
+
+Route::put('/rol/desactivar', 'RolController@desactivar');
+
+Route::put('/rol/activar', 'RolController@activar');
 
 //////////////////////////////////////////////////////////////////////////////////
 

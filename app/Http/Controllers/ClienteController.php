@@ -3,25 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Persona;
 
-//Importar el modelo de Categoria
-use App\Categoria;
-
-class CategoriaController extends Controller
+class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
     public function index()
     {
-        //Retornar todas las categorias
-        $categorias = Categoria::all();
-        return $categorias;
+        //Retornar todas las personas
+        $personas = Persona::all();
+        return $personas;
     }
   
-    //Metodo para obtener el listado de las categorias activas
+    //Metodo para obtener el listado de las personas activas
     public function selectCategoria(Request $request)
     {
         $categorias = Categoria::where('condicion','=','1')->select('id','nombre')->orderBy('nombre', 'asc')->get();
@@ -40,15 +34,18 @@ class CategoriaController extends Controller
         //Funcion para guardar, basicamente es el Insert :v
       
         //Instanciar el modelo
-        $categoria = new Categoria();
+        $persona = new Persona();
       
         //Pasar las propiedades de request al objeto recien creado
-        $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
-        $categoria->condicion = "1";
+        $persona->nombre = $request->nombre;
+        $persona->tipo_documento = $request->tipo_documento;
+        $persona->num_documento = $request->num_documento;
+        $persona->direccion = $request->direccion; 
+        $persona->telefono = $request->telefono;
+        $persona->email = $request->email;
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $persona->save();
     }
   
     /**
@@ -63,41 +60,30 @@ class CategoriaController extends Controller
         //Funcion para actualizar
       
         //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
+        $persona = Persona::findOrFail($request->idpersona);
       
         //Pasar las propiedades de request al objeto recien creado
-        $categoria->nombre = $request->nombre;
-        $categoria->descripcion = $request->descripcion;
-        $categoria->condicion = "1";
+        $persona->nombre = $request->nombre;
+        $persona->tipo_documento = $request->tipo_documento;
+        $persona->num_documento = $request->num_documento;
+        $persona->direccion = $request->direccion; 
+        $persona->telefono = $request->telefono;
+        $persona->email = $request->email;
       
         //Guardar el registro en la base de datos
-        $categoria->save();
+        $persona->save();
     }
   
     //Funcion para desactivar la categoria
-    public function desactivar(Request $request)
+    public function borrar(Request $request)
     {
         //Funcion para actualizar
       
         //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->condicion = "0";
+        $persona = Persona::findOrFail($request->idpersona);
       
         //Guardar el registro en la base de datos
-        $categoria->save();
-    }
-  
-    //Funcion para activar la categoria
-    public function activar(Request $request)
-    {
-        //Funcion para actualizar
-      
-        //Encontrar la categoria por id
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->condicion = "1";
-      
-        //Guardar el registro en la base de datos
-        $categoria->save();
+        $persona->delete();
     }
 
     /**

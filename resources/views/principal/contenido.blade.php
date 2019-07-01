@@ -11,23 +11,23 @@
     </template>
 
     <template v-if="menu==2">
-      <h2>Contenido del Menú 2</h2>
+      <articulo-component></articulo-component>
     </template>
 
     <template v-if="menu==3">
-      <usuarios-component></usuarios-component>
+      <ingreso-component></ingreso-component>
     </template>
 
     <template v-if="menu==4">
-      <h2>Contenido del Menú 4</h2>
+      <proveedor-component></proveedor-component>
     </template>
 
     <template v-if="menu==5">
-      <h2>Contenido del Menú 5</h2>
+      <venta-component></venta-component>
     </template>
 
     <template v-if="menu==6">
-      <h2>Contenido del Menú 6</h2>
+      <cliente-component></cliente-component>
     </template>
 
     <template v-if="menu==7">
@@ -35,7 +35,7 @@
     </template>
 
     <template v-if="menu==8">
-      <h2>Contenido del Menú 1</h2>
+      <rol-component></rol-component>
     </template>
 
     <template v-if="menu==9">
