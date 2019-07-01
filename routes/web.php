@@ -59,6 +59,11 @@ Route::put('/rol/desactivar', 'RolController@desactivar');
 
 Route::put('/rol/activar', 'RolController@activar');
 
+//Rutas de ingreso
+Route::get('/ingreso', 'IngresoController@index');
+
+//Rutas de venta
+Route::get('/venta', 'VentaController@index');
 //////////////////////////////////////////////////////////////////////////////////
 
 //Muestra la ruta de la vista welcome

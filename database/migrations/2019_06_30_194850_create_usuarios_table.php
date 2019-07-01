@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration
   
           $table->integer('idpersona')->unsigned();
           $table->integer('idrol')->unsigned();
+          $table->string('usuario',64);
           $table->string('clave',64);
           $table->boolean('condicion')->default(1);
           $table->timestamps();
