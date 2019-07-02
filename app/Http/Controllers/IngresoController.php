@@ -28,11 +28,11 @@ class IngresoController extends Controller
         try{
             DB::beginTransaction();
  
-            $mytime= Carbon::now('America/Lima');
+            $mytime= Carbon::now('America/Monterrey');
  
             $ingreso = new Ingreso();
             $ingreso->idproveedor = $request->idproveedor;
-            $ingreso->idusuario = \Auth::user()->id;
+            $ingreso->idusuario = 1;
             $ingreso->tipo_comprobante = $request->tipo_comprobante;
             $ingreso->serie_comprobante = $request->serie_comprobante;
             $ingreso->num_comprobante = $request->num_comprobante;

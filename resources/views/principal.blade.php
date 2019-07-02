@@ -56,7 +56,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                    <img src="img/avatars/alopolisia.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
                     <span class="d-md-down-none">admin </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -82,8 +82,8 @@
     
     </div>
     <footer class="app-footer">
-        <span><a href="http://www.incanatoit.com/">IncanatoIT</a> &copy; 2017</span>
-        <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">IncanatoIT</a></span>
+        <span><a href="#">Yu:v</a> &copy; 2019</span>
+        <span class="ml-auto">Desarrollado por <a href="#">Yu Hsiang Wang</a></span>
     </footer>
 
     <!-- Bootstrap and necessary plugins -->
